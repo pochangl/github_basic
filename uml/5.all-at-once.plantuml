@@ -1,0 +1,49 @@
+@startuml name
+rectangle github {
+    node main as github_main
+    node dev as github_dev
+}
+
+rectangle gitlab {
+    node main as gitlab_main
+    node dev as gitlab_dev
+}
+
+rectangle "local repository" {
+    node "github/main" as gh_main1
+    node "github/dev" as gh_dev1
+    node "gitlab/main" as gl_main1
+    node "gitlab/dev" as gl_dev1
+    node main as main1
+    node dev as dev1
+}
+rectangle "local repository2" {
+    node "github/main" as gh_main2
+    node "github/dev" as gh_dev2
+    node "gitlab/main" as gl_main2
+    node "gitlab/dev" as gl_dev2
+    node main as main2
+    node dev as dev2
+}
+
+github_main -- gh_main1
+gh_main1 -- main1
+github_dev -- gh_dev1
+gh_dev1 -- dev1
+
+gitlab_main -- gl_main1
+gl_main1 -- main1
+gitlab_dev -- gl_dev1
+gl_dev1 -- dev1
+
+
+github_main -- gh_main2
+gh_main2 -- main2
+github_dev -- gh_dev2
+gh_dev2 -- dev2
+
+gitlab_main -- gl_main2
+gl_main2 -- main2
+gitlab_dev -- gl_dev2
+gl_dev2 -- dev2
+@enduml
