@@ -1,0 +1,23 @@
+@startuml name
+rectangle github {
+    node main as github_main
+}
+
+rectangle gitlab {
+    node main as gitlab_main
+}
+
+rectangle "local repository" {
+    node "github/main" as gh_main
+    node "gitlab/main" as gl_main
+    node main
+}
+
+github_main -- gh_main
+gh_main -- main
+
+gitlab_main -- gl_main
+
+gl_main -- main
+
+@enduml
