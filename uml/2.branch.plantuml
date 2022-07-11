@@ -1,12 +1,15 @@
 @startuml name
-rectangle github {
+rectangle origin {
     node main as github_main
     node dev as github_dev
 }
 
 rectangle "local repository" {
-    node "github/main" as gh_main
-    node "github/dev" as gh_dev
+
+    rectangle "remote cache" {
+        node "origin/main" as gh_main
+        node "origin/dev" as gh_dev
+    }
     node main
     node dev
 }
